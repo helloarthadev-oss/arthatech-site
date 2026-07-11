@@ -101,7 +101,7 @@
     <h2 class="section-title">Help us make Wishes better</h2>
     <p class="section-lead">Two quick questions, both optional.</p>
 
-    <form id="wishesFeedbackForm" class="feedback-form">
+    <form id="wishesFeedbackForm" class="feedback-form" action="PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE" method="POST" target="hidden_iframe_wishes">
       <div class="field">
         <label for="languageRequest">What language should we add next?</label>
         <input type="text" id="languageRequest" name="languageRequest" placeholder="e.g. Bengali, Marathi, Gujarati...">
@@ -123,6 +123,8 @@
       <button type="submit" class="btn btn-coral" id="wishesSubmitBtn" style="width:100%;">Share Feedback</button>
     </form>
 
+    <iframe name="hidden_iframe_wishes" id="hidden_iframe_wishes" style="display:none;"></iframe>
+
     <div class="thankyou" id="wishesThankyou">
       <div class="icon">✓</div>
       <h2>Thank you!</h2>
@@ -141,31 +143,29 @@
   </footer>
 
   <script>
-    // Same Apps Script Web App URL used on index.html + feedback.html (see SETUP.md)
-    const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+    // The real submission target is the form's own "action" attribute above —
+    // replace PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE there with your deployed
+    // Apps Script Web App URL (see SETUP.md). This form submits natively
+    // (not via fetch) to a hidden iframe, which avoids a known issue where
+    // Apps Script Web Apps silently downgrade a fetch POST to a GET on redirect.
 
     const wishesForm = document.getElementById('wishesFeedbackForm');
     const wishesThankyou = document.getElementById('wishesThankyou');
     const wishesSubmitBtn = document.getElementById('wishesSubmitBtn');
+    const wishesIframe = document.getElementById('hidden_iframe_wishes');
+    let wishesSubmitted = false;
 
-    wishesForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+    wishesForm.addEventListener('submit', function () {
+      wishesSubmitted = true;
       wishesSubmitBtn.disabled = true;
       wishesSubmitBtn.textContent = 'Sending...';
+      // No preventDefault — let the browser submit the form natively.
+    });
 
-      const formData = new FormData(wishesForm);
-
-      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData })
-        .then(function () {
-          wishesForm.style.display = 'none';
-          wishesThankyou.style.display = 'block';
-        })
-        .catch(function (err) {
-          wishesSubmitBtn.disabled = false;
-          wishesSubmitBtn.textContent = 'Share Feedback';
-          alert('Something went wrong. Please try again in a moment.');
-          console.error(err);
-        });
+    wishesIframe.addEventListener('load', function () {
+      if (!wishesSubmitted) return; // ignore the iframe's initial blank load
+      wishesForm.style.display = 'none';
+      wishesThankyou.style.display = 'block';
     });
   </script>
 

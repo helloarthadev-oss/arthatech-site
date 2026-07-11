@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arthaa Finance — Does This Fit Your Life? | Artha Tech</title>
-<meta name="description" content="We're building a privacy-first personal finance app for India. Tell us if it fits your life — five minutes, no spam.">
+<title>Artha Tech — What Should We Build?</title>
+<meta name="description" content="We're exploring a new personal finance app for India. No pitch, just a few honest questions about how you track money today.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -15,32 +15,29 @@
 
   <div class="topnav">
     <div class="wrap">
-      <a class="brand" href="wishes.html">ARTHA<span>TECH</span></a>
+      <a class="brand" href="index.html">ARTHA<span>TECH</span></a>
       <div class="links">
-        <a href="wishes.html">Wishes</a>
-        <a href="finance.html">Arthaa Finance</a>
-        <a href="feedback.html" class="active">Share Feedback</a>
+        <a href="wishes.html">Wishes — our live app</a>
       </div>
     </div>
   </div>
 
   <div class="hero theme-indigo">
     <div class="wrap">
-      <span class="badge">Arthaa Finance</span>
-      <h1>Most finance apps weren't built for how Indians actually manage money.</h1>
-      <p>Global apps use dollar formatting and ignore gold, FDs, and EMIs. Bank-linked apps ask for your credentials just to show you a dashboard. We built Arthaa to be different — and before we open it up widely, we want to know if it actually fits your life.</p>
-      <p>Five minutes here directly shapes what we build next.</p>
+      <span class="badge">Artha Tech · Just Exploring</span>
+      <h1>Before we build anything, we want to understand how you actually manage money.</h1>
+      <p>No feature list to sell you on. Just a few honest questions — answer whichever ones you want, skip the rest.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="finance.html">See Arthaa Finance First</a>
-        <a class="btn btn-outline" href="#feedbackForm">Skip to Feedback</a>
+        <a class="btn btn-gold" href="index.html">See What We're Exploring</a>
+        <a class="btn btn-outline" href="#feedbackForm">Skip to Questions</a>
       </div>
     </div>
   </div>
 
   <div class="wrap">
     <div class="callout gold-accent">
-      <h2>🔒 Your data, your call</h2>
-      <p>Arthaa itself never asks for your bank login — it's offline-first, and your financial data stays on your device. This form is separate and only collects what you type below. We won't sell or share your answers, and we won't spam you — updates only, opt out anytime.</p>
+      <h2>🔒 Nothing here is being sold to you</h2>
+      <p>This page exists to ask questions, not pitch a product. Answers go straight to one person — the founder — not a marketing list.</p>
     </div>
   </div>
 
@@ -48,62 +45,41 @@
     <form id="feedbackForm" class="feedback-form">
 
       <div class="field">
-        <label for="name">Name <span class="hint">(optional)</span></label>
-        <input type="text" id="name" name="name" placeholder="What should we call you?">
+        <label for="trackingHabits">How do you currently keep track of your investments, EMIs, credit cards, loans, and monthly budget?</label>
+        <p class="hint" style="margin-bottom:8px;">Spreadsheet, an app, several apps, mostly memory — whatever's true.</p>
+        <textarea id="trackingHabits" name="trackingHabits" placeholder="Walk us through it, however messy..."></textarea>
       </div>
 
       <div class="field">
-        <label for="email">Email <span class="hint">(optional — only if you want launch updates)</span></label>
-        <input type="email" id="email" name="email" placeholder="you@example.com">
+        <label for="splitLendingHabits">When you split a bill or lend money to a friend or family member, how do you keep track — and how do you remind them?</label>
+        <p class="hint" style="margin-bottom:8px;">WhatsApp, a notes app, nothing at all, awkward memory...</p>
+        <textarea id="splitLendingHabits" name="splitLendingHabits" placeholder="e.g. I just remember, or I don't, and it gets awkward..."></textarea>
       </div>
 
       <div class="field">
-        <label>How do you track your finances today? <span class="required">*</span></label>
-        <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="tracksToday" value="Yes, with an app" required> Yes, with an app</label>
-          <label class="radio-option"><input type="radio" name="tracksToday" value="Yes, manually / spreadsheet"> Yes, manually or on a spreadsheet</label>
-          <label class="radio-option"><input type="radio" name="tracksToday" value="No, I don't track"> No, I don't really track it</label>
+        <label for="offlineOpinion">This would run fully on your device, offline — no internet needed to track your money. How does that sound?</label>
+        <p class="hint" style="margin-bottom:8px;">Would you ever want it to pull in live data, like fund or stock prices, from the internet — or should it stay fully offline?</p>
+        <textarea id="offlineOpinion" name="offlineOpinion" placeholder="Your honest reaction..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="pricingOpinion">What would feel like fair pricing to you for something like this?</label>
+        <p class="hint" style="margin-bottom:8px;">Free, one-time payment, a small yearly subscription, something else — just your honest take.</p>
+        <textarea id="pricingOpinion" name="pricingOpinion" placeholder="Whatever feels fair to you..."></textarea>
+      </div>
+
+      <div class="notify-box">
+        <h2 class="section-title" style="font-size:18px; margin-bottom:10px;">One more thing, if you want to support this</h2>
+        <p style="color:var(--muted); font-size:14.5px; margin:0 0 16px;">This is a solo effort — no team, no investors pushing growth targets, no pressure to monetize your data. We will never sell your information, full stop. If this is worth building, it'll be because a real community of people wanted it — not because of a marketing budget. If you'd like to be part of that from the start, leave your email below. It's completely optional, and it genuinely means a lot.</p>
+        <div class="field" style="margin-bottom:0;">
+          <label for="email">Email <span class="hint">(optional)</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
         </div>
-      </div>
-
-      <div class="field">
-        <label for="triedApps">Have you tried apps like this before? <span class="hint">(Mint, Splitwise, an account-aggregator app, etc. — what worked, what didn't)</span></label>
-        <textarea id="triedApps" name="triedApps" placeholder="e.g. Tried an AA app but didn't want to link my bank credentials..."></textarea>
-      </div>
-
-      <div class="field">
-        <label>Does Arthaa's approach fit what you actually need? <span class="required">*</span></label>
-        <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="fits" value="Yes" required> Yes, this is what I've been looking for</label>
-          <label class="radio-option"><input type="radio" name="fits" value="Partially"> Partially — close, but something's missing</label>
-          <label class="radio-option"><input type="radio" name="fits" value="No"> No, this isn't for me</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="fitsWhy">Tell us why <span class="hint">(this is the part we read most closely)</span></label>
-        <textarea id="fitsWhy" name="fitsWhy" placeholder="What's missing, what's confusing, or what convinced you..."></textarea>
-      </div>
-
-      <div class="field">
-        <label>Which of these would actually matter to you? <span class="hint">(pick as many as apply — this directly decides what we build next, not just how we polish what exists)</span></label>
-        <div class="radio-group">
-          <label class="radio-option"><input type="checkbox" name="priorityFeatures" value="Export to CSV + tax-ready PDF"> Exporting transactions to CSV, plus a tax-ready PDF summary</label>
-          <label class="radio-option"><input type="checkbox" name="priorityFeatures" value="WhatsApp split/lend reminders"> WhatsApp reminders when you split a bill or lend money to someone</label>
-          <label class="radio-option"><input type="checkbox" name="priorityFeatures" value="Clearer Credit Card EMI tracking"> Clearer separation between a credit card bill cycle and a converted EMI</label>
-          <label class="radio-option"><input type="checkbox" name="priorityFeatures" value="Auto backup and restore"> Automatic backup &amp; restore, so a lost phone doesn't mean lost data</label>
-          <label class="radio-option"><input type="checkbox" name="priorityFeatures" value="Biometric unlock"> Fingerprint / face unlock instead of a PIN every time</label>
-          <label class="radio-option"><input type="checkbox" name="priorityFeatures" value="SMS paste to auto-fill"> Paste a bank SMS to auto-fill a transaction (no permissions needed)</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="additional">Anything else on your mind? <span class="hint">(optional)</span></label>
-        <textarea id="additional" name="additional" placeholder="Feature requests, concerns, anything at all"></textarea>
+        <p class="notify-note">One email if this ships. No spam, ever. Unsubscribe anytime.</p>
       </div>
 
       <input type="hidden" name="formType" value="feedback">
-      <input type="hidden" name="source" value="reddit-feedback-page">
+      <input type="hidden" name="source" value="main-feedback-page">
 
       <button type="submit" class="btn btn-gold" id="submitBtn" style="width:100%;">Share Feedback</button>
     </form>
@@ -111,16 +87,15 @@
     <div class="thankyou" id="thankyou">
       <div class="icon">✓</div>
       <h2>Thank you — this genuinely helps.</h2>
-      <p>Your answer just went straight to the team building this. We'll keep you posted as Arthaa gets ready for launch — real updates, not spam.</p>
+      <p>Whatever you shared just went straight to a real person building this. If you left an email, we'll be in touch when there's something real to share — nothing before that.</p>
     </div>
   </div>
 
   <footer>
     <div>Artha Tech · Bengaluru, India</div>
     <div class="foot-links">
-      <a href="wishes.html">Wishes</a>·
-      <a href="finance.html">Arthaa Finance</a>·
-      <a href="feedback.html">Feedback</a>·
+      <a href="wishes.html">Wishes — our live app</a>·
+      <a href="feedback.html">Share Feedback</a>·
       <a href="mailto:helloartha.dev@gmail.com">Contact</a>
     </div>
   </footer>

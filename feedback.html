@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artha Tech — What Should We Build?</title>
+<meta name="description" content="We're exploring a new personal finance app for India. No pitch, just a few honest questions about how you track money today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Plausible analytics — replace data-domain with your real domain once the site is live -->
+<script defer data-domain="REPLACE_WITH_YOUR_DOMAIN" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+  <div class="topnav">
+    <div class="wrap">
+      <a class="brand" href="index.html">ARTHA<span>TECH</span></a>
+      <div class="links">
+        <a href="wishes.html">Wishes — our live app</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero theme-indigo">
+    <div class="wrap">
+      <span class="badge">Artha Tech · Just Exploring</span>
+      <h1>Before we build anything, we want to understand how you actually manage money.</h1>
+      <p>No feature list to sell you on. Just a few honest questions — answer whichever ones you want, skip the rest.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="index.html">See What We're Exploring</a>
+        <a class="btn btn-outline" href="#feedbackForm">Skip to Questions</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="callout gold-accent">
+      <h2>🔒 Nothing here is being sold to you</h2>
+      <p>This page exists to ask questions, not pitch a product. Answers go straight to one person — the founder — not a marketing list.</p>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <form id="feedbackForm" class="feedback-form">
+
+      <div class="field">
+        <label for="trackingHabits">How do you currently keep track of your investments, EMIs, credit cards, loans, and monthly budget?</label>
+        <p class="hint" style="margin-bottom:8px;">Spreadsheet, an app, several apps, mostly memory — whatever's true.</p>
+        <textarea id="trackingHabits" name="trackingHabits" placeholder="Walk us through it, however messy..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="splitLendingHabits">When you split a bill or lend money to a friend or family member, how do you keep track — and how do you remind them?</label>
+        <p class="hint" style="margin-bottom:8px;">WhatsApp, a notes app, nothing at all, awkward memory...</p>
+        <textarea id="splitLendingHabits" name="splitLendingHabits" placeholder="e.g. I just remember, or I don't, and it gets awkward..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="offlineOpinion">This would run fully on your device, offline — no internet needed to track your money. How does that sound?</label>
+        <p class="hint" style="margin-bottom:8px;">Would you ever want it to pull in live data, like fund or stock prices, from the internet — or should it stay fully offline?</p>
+        <textarea id="offlineOpinion" name="offlineOpinion" placeholder="Your honest reaction..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="pricingOpinion">What would feel like fair pricing to you for something like this?</label>
+        <p class="hint" style="margin-bottom:8px;">Free, one-time payment, a small yearly subscription, something else — just your honest take.</p>
+        <textarea id="pricingOpinion" name="pricingOpinion" placeholder="Whatever feels fair to you..."></textarea>
+      </div>
+
+      <div class="notify-box">
+        <h2 class="section-title" style="font-size:18px; margin-bottom:10px;">One more thing, if you want to support this</h2>
+        <p style="color:var(--muted); font-size:14.5px; margin:0 0 16px;">This is a solo effort — no team, no investors pushing growth targets, no pressure to monetize your data. We will never sell your information, full stop. If this is worth building, it'll be because a real community of people wanted it — not because of a marketing budget. If you'd like to be part of that from the start, leave your email below. It's completely optional, and it genuinely means a lot.</p>
+        <div class="field" style="margin-bottom:0;">
+          <label for="email">Email <span class="hint">(optional)</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+        <p class="notify-note">One email if this ships. No spam, ever. Unsubscribe anytime.</p>
+      </div>
+
+      <input type="hidden" name="formType" value="feedback">
+      <input type="hidden" name="source" value="main-feedback-page">
+
+      <button type="submit" class="btn btn-gold" id="submitBtn" style="width:100%;">Share Feedback</button>
+    </form>
+
+    <div class="thankyou" id="thankyou">
+      <div class="icon">✓</div>
+      <h2>Thank you — this genuinely helps.</h2>
+      <p>Whatever you shared just went straight to a real person building this. If you left an email, we'll be in touch when there's something real to share — nothing before that.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>Artha Tech · Bengaluru, India</div>
+    <div class="foot-links">
+      <a href="wishes.html">Wishes — our live app</a>·
+      <a href="feedback.html">Share Feedback</a>·
+      <a href="mailto:helloartha.dev@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Replace this with your deployed Google Apps Script Web App URL (see SETUP.md)
+    const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const form = document.getElementById('feedbackForm');
+    const thankyou = document.getElementById('thankyou');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(form);
+
+      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData })
+        .then(function () {
+          form.style.display = 'none';
+          thankyou.style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(function (err) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Share Feedback';
+          alert('Something went wrong sending your feedback. Please try again in a moment.');
+          console.error(err);
+        });
+    });
+  </script>
+
+</body>
+</html>

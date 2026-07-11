@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishes — Never Miss a Birthday | Artha Tech</title>
+<meta name="description" content="Never miss a birthday. Send heartfelt wishes to people you love. Built for Indian families — reminders, WhatsApp-ready templates, and anniversaries too.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Plausible analytics — replace data-domain with your real domain once the site is live -->
+<script defer data-domain="REPLACE_WITH_YOUR_DOMAIN" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+  <div class="topnav">
+    <div class="wrap">
+      <a class="brand" href="index.html">ARTHA<span>TECH</span></a>
+      <div class="links">
+        <a href="index.html">What We're Exploring</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero theme-coral">
+    <div class="wrap">
+      <span class="badge">Live on Google Play</span>
+      <h1>Never miss a birthday again. 🎂</h1>
+      <p>Life gets busy. Birthdays slip by. Anniversaries go unnoticed. Wishes makes sure that never happens — add your people once, and get reminded the day before and on the day itself.</p>
+      <p>Built for Indian families: elder sister, mother-in-law, best friend from college — Wishes understands every relationship in your life.</p>
+      <div class="hero-actions">
+        <a class="btn btn-coral" href="https://play.google.com/store/apps/details?id=com.artha.wishes" target="_blank" rel="noopener">Download on Google Play</a>
+        <a class="btn btn-outline" href="#features">See what it does</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="callout coral-accent">
+      <h2>🔒 Your data stays on your device</h2>
+      <p>No cloud accounts, no sign-ups. Contacts and reminders are stored locally and encrypted — nothing is shared with third parties.</p>
+    </div>
+  </div>
+
+  <div class="wrap section" id="features">
+    <h2 class="section-title">What Wishes does</h2>
+    <p class="section-lead">Start with 15 contacts free. No account needed.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="emoji">🎂</span>
+        <h3>Never miss a birthday</h3>
+        <p>Add your people once. Wishes reminds you the day before and on the day itself, so you always show up when it matters.</p>
+      </div>
+      <div class="feature-card">
+        <span class="emoji">💌</span>
+        <h3>Send the perfect wish in seconds</h3>
+        <p>Choose from warm, fun, or formal wish templates personalised to your relationship. One tap opens WhatsApp, ready to send.</p>
+      </div>
+      <div class="feature-card">
+        <span class="emoji">👨‍👩‍👧‍👦</span>
+        <h3>Built for Indian families</h3>
+        <p>Wishes understands relationships the way Indian families actually talk about them — not a generic Western contact list.</p>
+      </div>
+      <div class="feature-card">
+        <span class="emoji">❤️</span>
+        <h3>Anniversaries too</h3>
+        <p>Wedding anniversaries, work anniversaries — never let a milestone go uncelebrated.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section" style="padding-top:0;">
+    <h2 class="section-title">Languages</h2>
+    <p class="section-lead">Wishes currently supports:</p>
+    <div class="price-row">
+      <div class="price-chip">English</div>
+      <div class="price-chip">Hindi</div>
+      <div class="price-chip">Kannada</div>
+      <div class="price-chip">Telugu</div>
+      <div class="price-chip">Tamil</div>
+      <div class="price-chip">Malayalam</div>
+      <div class="price-chip">Arabic</div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <h2 class="section-title">Wishes Premium</h2>
+    <p class="section-lead">Unlimited contacts, anniversary reminders, kids profiles, 5x more templates, encrypted local backup, and no ads — ever.</p>
+    <div class="price-row">
+      <div class="price-chip"><strong>₹250</strong>per year</div>
+      <div class="price-chip"><strong>₹699</strong>for 5 years</div>
+      <div class="price-chip"><strong>₹1,499</strong>lifetime</div>
+    </div>
+  </div>
+
+  <div class="wrap section" style="padding-top:0;">
+    <a class="btn btn-coral" href="https://play.google.com/store/apps/details?id=com.artha.wishes" target="_blank" rel="noopener">Download on Google Play</a>
+  </div>
+
+  <div class="wrap section" id="wishesFeedbackSection">
+    <h2 class="section-title">Help us make Wishes better</h2>
+    <p class="section-lead">Two quick questions, both optional.</p>
+
+    <form id="wishesFeedbackForm" class="feedback-form">
+      <div class="field">
+        <label for="languageRequest">What language should we add next?</label>
+        <input type="text" id="languageRequest" name="languageRequest" placeholder="e.g. Bengali, Marathi, Gujarati...">
+      </div>
+
+      <div class="field">
+        <label for="featureRequest">What's one feature you wish Wishes had?</label>
+        <textarea id="featureRequest" name="featureRequest" placeholder="Anything at all..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="wishesEmail">Email <span class="hint">(optional)</span></label>
+        <input type="email" id="wishesEmail" name="email" placeholder="you@example.com">
+      </div>
+
+      <input type="hidden" name="formType" value="wishesFeedback">
+      <input type="hidden" name="source" value="wishes-page">
+
+      <button type="submit" class="btn btn-coral" id="wishesSubmitBtn" style="width:100%;">Share Feedback</button>
+    </form>
+
+    <div class="thankyou" id="wishesThankyou">
+      <div class="icon">✓</div>
+      <h2>Thank you!</h2>
+      <p>Your thoughts just went straight to the person who builds Wishes.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>Artha Tech · Bengaluru, India</div>
+    <div class="foot-links">
+      <a href="index.html">What We're Exploring</a>·
+      <a href="wishes.html">Wishes</a>·
+      <a href="feedback.html">Share Feedback</a>·
+      <a href="mailto:helloartha.dev@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Same Apps Script Web App URL used on index.html + feedback.html (see SETUP.md)
+    const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const wishesForm = document.getElementById('wishesFeedbackForm');
+    const wishesThankyou = document.getElementById('wishesThankyou');
+    const wishesSubmitBtn = document.getElementById('wishesSubmitBtn');
+
+    wishesForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      wishesSubmitBtn.disabled = true;
+      wishesSubmitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(wishesForm);
+
+      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData })
+        .then(function () {
+          wishesForm.style.display = 'none';
+          wishesThankyou.style.display = 'block';
+        })
+        .catch(function (err) {
+          wishesSubmitBtn.disabled = false;
+          wishesSubmitBtn.textContent = 'Share Feedback';
+          alert('Something went wrong. Please try again in a moment.');
+          console.error(err);
+        });
+    });
+  </script>
+
+</body>
+</html>

@@ -15,11 +15,9 @@
 
   <div class="topnav">
     <div class="wrap">
-      <a class="brand" href="wishes.html">ARTHA<span>TECH</span></a>
+      <a class="brand" href="index.html">ARTHA<span>TECH</span></a>
       <div class="links">
-        <a href="wishes.html" class="active">Wishes</a>
-        <a href="finance.html">Arthaa Finance</a>
-        <a href="feedback.html">Share Feedback</a>
+        <a href="index.html">What We're Exploring</a>
       </div>
     </div>
   </div>
@@ -71,6 +69,20 @@
     </div>
   </div>
 
+  <div class="wrap section" style="padding-top:0;">
+    <h2 class="section-title">Languages</h2>
+    <p class="section-lead">Wishes currently supports:</p>
+    <div class="price-row">
+      <div class="price-chip">English</div>
+      <div class="price-chip">Hindi</div>
+      <div class="price-chip">Kannada</div>
+      <div class="price-chip">Telugu</div>
+      <div class="price-chip">Tamil</div>
+      <div class="price-chip">Malayalam</div>
+      <div class="price-chip">Arabic</div>
+    </div>
+  </div>
+
   <div class="wrap section">
     <h2 class="section-title">Wishes Premium</h2>
     <p class="section-lead">Unlimited contacts, anniversary reminders, kids profiles, 5x more templates, encrypted local backup, and no ads — ever.</p>
@@ -85,15 +97,77 @@
     <a class="btn btn-coral" href="https://play.google.com/store/apps/details?id=com.artha.wishes" target="_blank" rel="noopener">Download on Google Play</a>
   </div>
 
+  <div class="wrap section" id="wishesFeedbackSection">
+    <h2 class="section-title">Help us make Wishes better</h2>
+    <p class="section-lead">Two quick questions, both optional.</p>
+
+    <form id="wishesFeedbackForm" class="feedback-form">
+      <div class="field">
+        <label for="languageRequest">What language should we add next?</label>
+        <input type="text" id="languageRequest" name="languageRequest" placeholder="e.g. Bengali, Marathi, Gujarati...">
+      </div>
+
+      <div class="field">
+        <label for="featureRequest">What's one feature you wish Wishes had?</label>
+        <textarea id="featureRequest" name="featureRequest" placeholder="Anything at all..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="wishesEmail">Email <span class="hint">(optional)</span></label>
+        <input type="email" id="wishesEmail" name="email" placeholder="you@example.com">
+      </div>
+
+      <input type="hidden" name="formType" value="wishesFeedback">
+      <input type="hidden" name="source" value="wishes-page">
+
+      <button type="submit" class="btn btn-coral" id="wishesSubmitBtn" style="width:100%;">Share Feedback</button>
+    </form>
+
+    <div class="thankyou" id="wishesThankyou">
+      <div class="icon">✓</div>
+      <h2>Thank you!</h2>
+      <p>Your thoughts just went straight to the person who builds Wishes.</p>
+    </div>
+  </div>
+
   <footer>
     <div>Artha Tech · Bengaluru, India</div>
     <div class="foot-links">
+      <a href="index.html">What We're Exploring</a>·
       <a href="wishes.html">Wishes</a>·
-      <a href="finance.html">Arthaa Finance</a>·
-      <a href="feedback.html">Feedback</a>·
+      <a href="feedback.html">Share Feedback</a>·
       <a href="mailto:helloartha.dev@gmail.com">Contact</a>
     </div>
   </footer>
+
+  <script>
+    // Same Apps Script Web App URL used on index.html + feedback.html (see SETUP.md)
+    const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const wishesForm = document.getElementById('wishesFeedbackForm');
+    const wishesThankyou = document.getElementById('wishesThankyou');
+    const wishesSubmitBtn = document.getElementById('wishesSubmitBtn');
+
+    wishesForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      wishesSubmitBtn.disabled = true;
+      wishesSubmitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(wishesForm);
+
+      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData })
+        .then(function () {
+          wishesForm.style.display = 'none';
+          wishesThankyou.style.display = 'block';
+        })
+        .catch(function (err) {
+          wishesSubmitBtn.disabled = false;
+          wishesSubmitBtn.textContent = 'Share Feedback';
+          alert('Something went wrong. Please try again in a moment.');
+          console.error(err);
+        });
+    });
+  </script>
 
 </body>
 </html>
